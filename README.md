@@ -26,3 +26,6 @@ A simple Vagrant LAMP setup running PHP7.
 ````
 - Navigate to ``http://app.dev/`` 
 - Navigate to ``http://phpmyadmin.dev/`` (both username and password are 'root')
+=======
+# templateheld-default-vagrant-box
+Default Vagrantbox 
