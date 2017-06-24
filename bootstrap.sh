@@ -58,6 +58,10 @@ sudo /etc/init.d/apache2 restart
 #sudo mv composer.phar /usr/local/bin/composer
 #sudo chmod +x /usr/local/bin/composer
 
+echo "-- Install Gulp --"
+sudo npm install gulp-cli -g
+sudo npm npm install gulp -D
+
 echo "-- Install phpMyAdmin --"
 wget -k https://files.phpmyadmin.net/phpMyAdmin/4.0.10.11/phpMyAdmin-4.0.10.11-english.tar.gz
 sudo tar -xzvf phpMyAdmin-4.0.10.11-english.tar.gz -C /var/www/
