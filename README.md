@@ -1,31 +1,35 @@
-# Vagrant PHP7 
+# Vagrant Box für templateheld developer 
 
-A simple Vagrant LAMP setup running PHP7.
+Vagrant LAMP setup mit PHP7.
 
-## What's inside?
+## Was ist in der Box
 
 - Ubuntu 14.04.3 LTS (Trusty Tahr)
-- Vim, Git, Curl, etc.
 - Apache
-- PHP7 with some extensions
+- Vim, Git, Curl, etc.
+- PHP7 mit div. Extensions
 - MySQL 5.6
-- Node.js with NPM
-- RabbitMQ
-- Redis
-- Composer
+- Node.js mit NPM
+- Gulp (global installier)
 - phpMyAdmin
 
-## How to use
+## Anleitung
 
-- Clone this repository into your project
-- Run ``vagrant up``
-- Add the following lines to your hosts file:
+- clone diese Repo in Dein Projekt-Ordner
+- gehe im Terminal in Dein Projekt-Ordner rein 
+- führe ``vagrant up`` aus
+- füge diese Zeilen in Deine hosts-Datei hinzu:
 ````
-192.168.100.100 app.dev
-192.168.100.100 phpmyadmin.dev
+192.168.35.35 dev.templateheld.de
+192.168.35.35 pma.templateheld.de
 ````
-- Navigate to ``http://app.dev/`` 
-- Navigate to ``http://phpmyadmin.dev/`` (both username and password are 'root')
+- Versuche ``http://dev.templateheld.de`` im Browser aufzurufen
+- Versuche ``http://pma.templateheld.de`` im Browser aufzurufen für phpMyAdmin
+
+
+## Wichtige Daten
+DB User ist *root* und PW ist ebenfalls *root*
+
 =======
 # templateheld-default-vagrant-box
 Default Vagrantbox 
