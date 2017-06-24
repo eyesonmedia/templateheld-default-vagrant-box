@@ -28,7 +28,7 @@ Vagrant LAMP setup mit PHP7.
 
 
 ## Wichtige Daten
-DB User ist *root* und PW ist ebenfalls *root*
+DB User ist **root** und PW ist ebenfalls **root**
 
 =======
 # templateheld-default-vagrant-box
