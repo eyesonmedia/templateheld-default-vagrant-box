@@ -15,17 +15,17 @@ Vagrant LAMP setup mit PHP7.
 
 ## Anleitung
 
-- clone diese Repo in Dein Projekt-Ordner
-- gehe im Terminal in Dein Projekt-Ordner rein 
-- führe ``vagrant up`` aus
-- füge diese Zeilen in Deine hosts-Datei hinzu:
+- clone diese Repo in Dein Projekt-Ordner (templateheld-default-vagrant-box)
+- gehe im Terminal in Dein Projekt-Ordner und ``templateheld-default-vagrant-box`` rein 
+- führe ``vagrant up`` aus und hole Dir einen Kaffee...kann ca. 10-15min dauern ;)
+- füge anschließen diese Zeilen in Deine hosts-Datei hinzu:
 ````
 192.168.35.35 dev.templateheld.de
 192.168.35.35 pma.templateheld.de
 ````
 - Versuche ``http://dev.templateheld.de`` im Browser aufzurufen
 - Versuche ``http://pma.templateheld.de`` im Browser aufzurufen für phpMyAdmin
-
+- DB User ist ``root`` und PW ist ebenfalls ``root``
 
 ## Wichtige Daten
 DB User ist **root** und PW ist ebenfalls **root**
