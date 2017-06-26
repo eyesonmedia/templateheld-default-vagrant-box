@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+MAGE_VERSION="1.9.1.0"
 
 Update () {
     echo "-- Update packages --"
@@ -23,7 +24,7 @@ curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
 
 echo "-- Install packages --"
 sudo apt-get install -y --force-yes apache2 mysql-server-5.6 git-core nodejs
-sudo apt-get install -y --force-yes php7.0-common php7.0-dev php7.0-json php7.0-opcache php7.0-cli libapache2-mod-php7.0 php7.0 php7.0-mysql php7.0-fpm php7.0-curl php7.0-gd php7.0-mcrypt php7.0-mbstring php7.0-bcmath php7.0-zip
+sudo apt-get install -y --force-yes php7.0-common php7.0-dev php7.0-json php7.0-opcache php7.0-cli libapache2-mod-php7.0 php7.0 php7.0-mysql php7.0-fpm php7.0-curl php7.0-gd php7.0-mcrypt php7.0-mbstring php7.0-bcmath php7.0-zip php7.0-xml
 Update
 
 echo "-- Configure PHP &Apache --"
@@ -68,6 +69,37 @@ sudo tar -xzvf phpMyAdmin-4.0.10.11-english.tar.gz -C /var/www/
 sudo rm phpMyAdmin-4.0.10.11-english.tar.gz
 sudo mv /var/www/phpMyAdmin-4.0.10.11-english/ /var/www/phpmyadmin
 
-echo "-- Setup databases --"
+echo "-- Setup databases & preparing database for Magento --"
 mysql -uroot -proot -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION; FLUSH PRIVILEGES;"
-mysql -uroot -proot -e "CREATE DATABASE my_database";
+mysql -uroot -proot -e "CREATE DATABASE IF NOT EXISTS templatehelddb"
+
+echo "-- Magento installation --"
+# Download and extract latest 1.9.3.3 from https://github.com/OpenMage/magento-mirror/releases > https://github.com/OpenMage/magento-mirror/archive/1.9.3.3.tar.gz
+cd /vagrant/public
+wget https://github.com/OpenMage/magento-mirror/archive/1.9.3.3.tar.gz
+tar -zxvf 1.9.3.3.tar.gz
+mv magento-mirror-1.9.3.3/* magento-mirror-1.9.3.3/.htaccess .
+chmod -R o+w media var
+chmod o+w app/etc
+# Clean up downloaded file and extracted dir
+rm -rf magento-mirror-1.9.3.3*
+
+echo "-- Magento setup --"
+sudo php -f install.php -- --license_agreement_accepted yes \
+  --locale de_DE --timezone "Europe/Berlin" --default_currency EUR \
+  --db_host localhost --db_name templatehelddb --db_user root --db_pass root \
+  --url "http://dev.templateheld.de/" --use_rewrites yes \
+  --use_secure no --secure_base_url "http://dev.templateheld.de/" --use_secure_admin no \
+  --skip_url_validation yes \
+  --admin_lastname Owner --admin_firstname Store --admin_email "admin@templateheld.de" \
+  --admin_username admin --admin_password password123
+  php -f shell/indexer.php reindexall
+
+# Install n98-magerun
+# --------------------
+cd /vagrant/public
+wget https://raw.github.com/netz98/n98-magerun/master/n98-magerun.phar
+chmod +x ./n98-magerun.phar
+sudo mv ./n98-magerun.phar /usr/local/bin/
+
+./n98-magerun.phar cache:clean
