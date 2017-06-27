@@ -81,6 +81,7 @@ chmod -R o+w media var
 chmod o+w app/etc
 # Clean up downloaded file and extracted dir
 rm -rf magento-mirror-1.9.3.3*
+rm 1.9.3.3.tar.gz
 
 echo "-- Magento setup --"
 sudo php -f install.php -- --license_agreement_accepted yes \
