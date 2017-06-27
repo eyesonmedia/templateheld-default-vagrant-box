@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-MAGE_VERSION="1.9.1.0"
-
 Update () {
     echo "-- Update packages --"
     sudo apt-get update
