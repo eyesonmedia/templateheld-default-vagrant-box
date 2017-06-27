@@ -104,5 +104,6 @@ chmod +x ./n98-magerun.phar
 
 # init repo
 # --------------------
+cd /vagrant/public
 git init
 git remote add origin ssh://git@bitbucket.org/aydinb/templateheld-shop.git
