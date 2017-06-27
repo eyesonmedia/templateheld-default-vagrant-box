@@ -39,6 +39,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         vb.customize ["modifyvm", :id, "--cpus", cpus]
     end
 
+    config.vm.provision "file", source: "templateheld_dev.pub", destination: "~/.ssh/templateheld_dev.pub"
     config.vm.provision :shell, :path => "bootstrap.sh"
 
 end
