@@ -86,7 +86,6 @@ echo "-- Magento setup --"
 sudo php -f install.php -- --license_agreement_accepted yes \
   --locale de_DE --timezone "Europe/Berlin" --default_currency EUR \
   --db_host localhost --db_name templatehelddb --db_user root --db_pass root \
-  --session_save_path /tmp/session \
   --url "http://dev.templateheld.de/" --use_rewrites yes \
   --use_secure no --secure_base_url "http://dev.templateheld.de/" --use_secure_admin no \
   --skip_url_validation yes \
@@ -102,3 +101,8 @@ chmod +x ./n98-magerun.phar
 
 ./n98-magerun.phar cache:clean
 ./n98-magerun.phar index:reindex:all
+
+# init repo
+# --------------------
+git init
+git remote add origin ssh://git@bitbucket.org/aydinb/templateheld-shop.git
