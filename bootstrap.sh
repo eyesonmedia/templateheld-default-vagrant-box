@@ -100,6 +100,6 @@ sudo php -f install.php -- --license_agreement_accepted yes \
 cd /vagrant/public
 wget https://raw.github.com/netz98/n98-magerun/master/n98-magerun.phar
 chmod +x ./n98-magerun.phar
-sudo mv ./n98-magerun.phar /usr/local/bin/
 
 ./n98-magerun.phar cache:clean
+./n98-magerun.phar index:reindex:all
