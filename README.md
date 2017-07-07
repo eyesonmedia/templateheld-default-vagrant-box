@@ -23,6 +23,8 @@ Vagrant LAMP setup mit PHP7.
 192.168.35.35 dev.templateheld.de
 192.168.35.35 pma.templateheld.de
 ````
+- gehe anschließend ins Verzeichnis ``templateheld-default-vagrant-box/public/``
+- aktualisiere Dein git im ``public``-Verzeichnis mit ``git fecht && git pull origin master``
 - Versuche ``http://dev.templateheld.de`` im Browser aufzurufen
 - Versuche ``http://pma.templateheld.de`` im Browser aufzurufen für phpMyAdmin
 - DB User ist ``root`` und PW ist ebenfalls ``root``
