@@ -24,10 +24,11 @@ Vagrant LAMP setup mit PHP7.
 192.168.35.35 pma.templateheld.de
 ````
 - gehe anschließend ins Verzeichnis ``templateheld-default-vagrant-box/public/``
-- aktualisiere Dein git im ``public``-Verzeichnis mit ``git fecht && git pull origin master``
+- aktualisiere Dein git im ``public``-Verzeichnis mit ``git fetch && git pull origin master``
 - Versuche ``http://dev.templateheld.de`` im Browser aufzurufen
 - Versuche ``http://pma.templateheld.de`` im Browser aufzurufen für phpMyAdmin
 - DB User ist ``root`` und PW ist ebenfalls ``root``
+- Magento Backend-Url ist ``http://dev.templateheld.de/admin`` User ist ``admin`` und PW ist ``password123``
 
 ## Wichtige Daten
 DB User ist **root** und PW ist ebenfalls **root**
