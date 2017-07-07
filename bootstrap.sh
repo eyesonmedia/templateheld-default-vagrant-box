@@ -103,6 +103,10 @@ chmod +x ./n98-magerun.phar
 ./n98-magerun.phar cache:clean
 ./n98-magerun.phar index:reindex:all
 
+# remove /vagrant/public
+sudo rm -rf /vagrant/public
+sudo mkdir /vagrant/public
+
 # init repo
 # --------------------
 cd /vagrant/public
